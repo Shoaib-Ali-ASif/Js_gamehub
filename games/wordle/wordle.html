@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle - Game Hub</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="wordle.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">
+                <span>📝</span>
+                <span>Wordle</span>
+            </h1>
+            <a href="../../index.html" class="back-btn">← Back to Home</a>
+        </div>
+
+        <div class="game-info">
+            <div class="info-card">
+                <div class="info-label">Guesses</div>
+                <div class="info-value" id="guesses">0/6</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Wins</div>
+                <div class="info-value" id="wins">0</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Current Word</div>
+                <div class="info-value" id="wordLength">5</div>
+            </div>
+        </div>
+
+        <div class="game-canvas-container">
+            <div class="wordle-game">
+                <div class="wordle-board" id="board"></div>
+                <div class="keyboard" id="keyboard"></div>
+                <div class="game-message" id="gameMessage"></div>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="btn btn-primary" id="newGameBtn">New Game</button>
+            <button class="btn btn-secondary" id="resetBtn">Reset</button>
+        </div>
+    </div>
+
+    <script src="../../scripts/main.js"></script>
+    <script src="wordle.js"></script>
+</body>
+</html>
+

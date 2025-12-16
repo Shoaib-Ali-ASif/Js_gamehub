@@ -1,0 +1,132 @@
+.minesweeper-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 3px;
+    max-width: 750px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--border-color);
+    border-radius: 8px;
+}
+
+.mine-cell {
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s ease;
+    font-size: 1.8rem;
+    min-height: 40px;
+}
+
+.mine-cell:hover:not(.revealed):not(.flagged) {
+    background: var(--primary-color);
+    opacity: 0.3;
+}
+
+.mine-cell.revealed {
+    background: var(--bg-color);
+    cursor: default;
+}
+
+.mine-cell.flagged {
+    background: #fbbf24;
+}
+
+.mine-cell.mine {
+    background: #ef4444;
+}
+
+.mine-cell.number-1 { color: #3b82f6; }
+.mine-cell.number-2 { color: #22c55e; }
+.mine-cell.number-3 { color: #ef4444; }
+.mine-cell.number-4 { color: #8b5cf6; }
+.mine-cell.number-5 { color: #f59e0b; }
+.mine-cell.number-6 { color: #ec4899; }
+.mine-cell.number-7 { color: #000; }
+.mine-cell.number-8 { color: #64748b; }
+
+.difficulty-controls {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.difficulty-controls label {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.mines-select {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.mines-select:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-color);
+}
+
+.mines-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.game-instructions {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+    .minesweeper-board {
+        max-width: 100%;
+        gap: 2px;
+        padding: 1.5rem;
+    }
+    
+    .mine-cell {
+        font-size: 1.5rem;
+        min-height: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .minesweeper-board {
+        gap: 1px;
+        padding: 1rem;
+    }
+    
+    .mine-cell {
+        font-size: 1.2rem;
+        min-height: 30px;
+    }
+}
+

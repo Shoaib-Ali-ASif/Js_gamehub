@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game - Game Hub</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="memory.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">
+                <span>🧠</span>
+                <span>Memory Card Game</span>
+            </h1>
+            <a href="../../index.html" class="back-btn">← Back to Home</a>
+        </div>
+
+        <div class="game-info">
+            <div class="info-card">
+                <div class="info-label">Moves</div>
+                <div class="info-value" id="moves">0</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Time</div>
+                <div class="info-value" id="time">00:00</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Best Time</div>
+                <div class="info-value" id="bestTime">--</div>
+            </div>
+        </div>
+
+        <div class="game-canvas-container">
+            <div class="memory-board" id="board"></div>
+        </div>
+
+        <div class="game-controls">
+            <button class="btn btn-primary" id="startBtn">New Game</button>
+            <button class="btn btn-secondary" id="resetBtn">Reset</button>
+        </div>
+    </div>
+
+    <script src="../../scripts/main.js"></script>
+    <script src="memory.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 400px;
+    height: 400px;
+    max-width: 90vw;
+    max-height: 90vw;
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.cell {
+    background: var(--bg-color);
+    border: 3px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.cell:hover:not(.disabled) {
+    background: var(--primary-color);
+    opacity: 0.2;
+    transform: scale(1.05);
+}
+
+.cell.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.cell.x {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+.cell.o {
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+.game-message {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-message.winner {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    animation: pulse 0.5s ease;
+}
+
+.game-message.draw {
+    background: var(--text-secondary);
+    color: white;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 480px) {
+    .board {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .cell {
+        font-size: 3rem;
+    }
+}
+

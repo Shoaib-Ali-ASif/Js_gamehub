@@ -1,0 +1,99 @@
+.math-game {
+    text-align: center;
+    padding: 2rem;
+}
+
+.question-display {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+    color: var(--primary-color);
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.answers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.answer-btn {
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 3px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+.answer-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.answer-btn:active {
+    transform: translateY(-2px) scale(0.95);
+}
+
+.answer-btn.correct {
+    background: #22c55e;
+    color: white;
+    border-color: #22c55e;
+    animation: correctPulse 0.5s ease;
+}
+
+.answer-btn.wrong {
+    background: #ef4444;
+    color: white;
+    border-color: #ef4444;
+    animation: wrongShake 0.5s ease;
+}
+
+@keyframes correctPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes wrongShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .question-display {
+        font-size: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .answer-btn {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+

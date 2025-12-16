@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Pics 1 Word - Game Hub</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="picsword.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">
+                <span>🖼️</span>
+                <span>4 Pics 1 Word</span>
+            </h1>
+            <a href="../../index.html" class="back-btn">← Back to Home</a>
+        </div>
+
+        <div class="game-info">
+            <div class="info-card">
+                <div class="info-label">Score</div>
+                <div class="info-value" id="score">0</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">High Score</div>
+                <div class="info-value" id="highScore">0</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Level</div>
+                <div class="info-value" id="level">1</div>
+            </div>
+        </div>
+
+        <div class="game-canvas-container">
+            <div class="picsword-game">
+                <div class="pictures-grid" id="picturesGrid"></div>
+                <div class="word-display" id="wordDisplay"></div>
+                <div class="letters-grid" id="lettersGrid"></div>
+                <div class="selected-letters" id="selectedLetters"></div>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="btn btn-primary" id="nextBtn">Next Puzzle</button>
+            <button class="btn btn-secondary" id="hintBtn">Hint</button>
+        </div>
+    </div>
+
+    <script src="../../scripts/main.js"></script>
+    <script src="picsword.js"></script>
+</body>
+</html>
+

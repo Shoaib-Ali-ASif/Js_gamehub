@@ -1,0 +1,105 @@
+.game-2048 {
+    text-align: center;
+}
+
+.board-2048 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.tile-2048 {
+    aspect-ratio: 1;
+    background: #cdc1b4;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #776e65;
+    transition: all 0.15s ease;
+}
+
+.tile-2048.number-2 { background: #eee4da; }
+.tile-2048.number-4 { background: #ede0c8; }
+.tile-2048.number-8 { background: #f2b179; color: #f9f6f2; }
+.tile-2048.number-16 { background: #f59563; color: #f9f6f2; }
+.tile-2048.number-32 { background: #f67c5f; color: #f9f6f2; }
+.tile-2048.number-64 { background: #f65e3b; color: #f9f6f2; }
+.tile-2048.number-128 { background: #edcf72; color: #f9f6f2; font-size: 1.8rem; }
+.tile-2048.number-256 { background: #edcc61; color: #f9f6f2; font-size: 1.8rem; }
+.tile-2048.number-512 { background: #edc850; color: #f9f6f2; font-size: 1.8rem; }
+.tile-2048.number-1024 { background: #edc53f; color: #f9f6f2; font-size: 1.5rem; }
+.tile-2048.number-2048 { background: #edc22e; color: #f9f6f2; font-size: 1.5rem; }
+
+.tile-2048.new {
+    animation: tilePop 0.2s ease;
+}
+
+@keyframes tilePop {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.game-message-2048 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-height: 40px;
+}
+
+.game-message-2048.win {
+    color: #22c55e;
+    animation: pulse 0.5s ease;
+}
+
+.game-message-2048.game-over {
+    color: #ef4444;
+}
+
+.game-instructions {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .board-2048 {
+        gap: 8px;
+        padding: 8px;
+    }
+    
+    .tile-2048 {
+        font-size: 1.5rem;
+    }
+    
+    .tile-2048.number-128,
+    .tile-2048.number-256,
+    .tile-2048.number-512 {
+        font-size: 1.3rem;
+    }
+    
+    .tile-2048.number-1024,
+    .tile-2048.number-2048 {
+        font-size: 1.1rem;
+    }
+}
+

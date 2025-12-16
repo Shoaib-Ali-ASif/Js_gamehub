@@ -1,0 +1,22 @@
+#gameCanvas {
+    background: #000;
+    border: 3px solid var(--border-color);
+}
+
+.game-instructions {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
+

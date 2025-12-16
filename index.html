@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Game Hub</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎮 JavaScript Game Hub</h1>
+            <div class="header-controls">
+                <button id="darkModeToggle" class="btn-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <a href="leaderboard.html" class="btn-leaderboard">🏆 Leaderboard</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Welcome to the Ultimate Game Collection!</h2>
+            <p>Choose from 10 amazing browser games. Each game features full mechanics, scoring, and high score tracking.</p>
+        </section>
+
+        <section class="games-grid">
+            <div class="game-card" data-game="snake">
+                <div class="game-icon">🐍</div>
+                <h3>Snake</h3>
+                <p>Classic snake game with growing mechanics</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="snake-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="tictactoe">
+                <div class="game-icon">⭕</div>
+                <h3>Tic-Tac-Toe</h3>
+                <p>Play against AI or a friend</p>
+                <div class="game-stats">
+                    <span class="high-score">Wins: <span id="tictactoe-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="flappy">
+                <div class="game-icon">🐦</div>
+                <h3>Flappy Bird</h3>
+                <p>Navigate through obstacles</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="flappy-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="pong">
+                <div class="game-icon">🏓</div>
+                <h3>Pong</h3>
+                <p>Classic arcade paddle game</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="pong-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="memory">
+                <div class="game-icon">🧠</div>
+                <h3>Memory Cards</h3>
+                <p>Test your memory skills</p>
+                <div class="game-stats">
+                    <span class="high-score">Best Time: <span id="memory-highscore">--</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="breakout">
+                <div class="game-icon">💥</div>
+                <h3>Breakout</h3>
+                <p>Break all the bricks!</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="breakout-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="rps">
+                <div class="game-icon">✂️</div>
+                <h3>Rock Paper Scissors</h3>
+                <p>Best of luck!</p>
+                <div class="game-stats">
+                    <span class="high-score">Wins: <span id="rps-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="minesweeper">
+                <div class="game-icon">💣</div>
+                <h3>Minesweeper</h3>
+                <p>Find all mines safely</p>
+                <div class="game-stats">
+                    <span class="high-score">Best Time: <span id="minesweeper-highscore">--</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="whackamole">
+                <div class="game-icon">🔨</div>
+                <h3>Whack-a-Mole</h3>
+                <p>Hit the moles quickly!</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="whackamole-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="2048">
+                <div class="game-icon">🔢</div>
+                <h3>2048</h3>
+                <p>Merge tiles to reach 2048</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="2048-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="racing">
+                <div class="game-icon">🏎️</div>
+                <h3>Mini Racing</h3>
+                <p>Race and avoid obstacles</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="racing-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="math">
+                <div class="game-icon">🔢</div>
+                <h3>Math Challenge</h3>
+                <p>Solve math problems quickly</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="math-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="wordle">
+                <div class="game-icon">📝</div>
+                <h3>Wordle</h3>
+                <p>Guess the 5-letter word</p>
+                <div class="game-stats">
+                    <span class="high-score">Wins: <span id="wordle-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="picsword">
+                <div class="game-icon">🖼️</div>
+                <h3>4 Pics 1 Word</h3>
+                <p>Find the common word</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="picsword-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="sliding">
+                <div class="game-icon">🧩</div>
+                <h3>Sliding Puzzle</h3>
+                <p>Arrange the tiles</p>
+                <div class="game-stats">
+                    <span class="high-score">Best Time: <span id="sliding-highscore">--</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="bubble">
+                <div class="game-icon">🎯</div>
+                <h3>Bubble Shooter</h3>
+                <p>Match and pop bubbles</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="bubble-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="dart">
+                <div class="game-icon">🎯</div>
+                <h3>Dart Throwing</h3>
+                <p>Aim for the bullseye</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="dart-highscore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" data-game="colorswitch">
+                <div class="game-icon">🌈</div>
+                <h3>Color Switch</h3>
+                <p>Match colors to pass</p>
+                <div class="game-stats">
+                    <span class="high-score">High Score: <span id="colorswitch-highscore">0</span></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 JavaScript Game Hub. Built with HTML5, CSS3, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+

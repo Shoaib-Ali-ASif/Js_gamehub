@@ -1,0 +1,116 @@
+.picsword-game {
+    text-align: center;
+    padding: 2rem;
+}
+
+.pictures-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.picture-item {
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border: 3px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    box-shadow: var(--shadow);
+}
+
+.word-display {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 2rem 0;
+    color: var(--primary-color);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selected-letters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    min-height: 60px;
+    flex-wrap: wrap;
+}
+
+.selected-letter {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.selected-letter:hover {
+    transform: scale(1.1);
+    background: var(--secondary-color);
+}
+
+.letters-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.letter-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+}
+
+.letter-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.letter-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.letter-btn.used {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .picture-item {
+        font-size: 3rem;
+    }
+    
+    .letter-btn, .selected-letter {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+

@@ -1,0 +1,44 @@
+#gameCanvas {
+    background: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+    border: 3px solid var(--border-color);
+    display: block;
+}
+
+.start-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+.start-screen.hidden {
+    display: none;
+}
+
+.start-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.start-screen p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.game-canvas-container {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
+

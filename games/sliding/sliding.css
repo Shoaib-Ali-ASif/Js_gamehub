@@ -1,0 +1,66 @@
+.sliding-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.sliding-tile {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    box-shadow: var(--shadow);
+}
+
+.sliding-tile:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.sliding-tile.empty {
+    background: var(--bg-color);
+    cursor: default;
+    box-shadow: none;
+}
+
+.sliding-tile.moving {
+    animation: slideMove 0.3s ease;
+}
+
+@keyframes slideMove {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .sliding-board {
+        gap: 3px;
+        padding: 1rem;
+    }
+    
+    .sliding-tile {
+        font-size: 1.5rem;
+    }
+}
+

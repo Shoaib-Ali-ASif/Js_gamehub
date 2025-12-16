@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Game Hub</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/leaderboard.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🏆 Leaderboard</h1>
+            <div class="header-controls">
+                <button id="darkModeToggle" class="btn-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <a href="index.html" class="btn-leaderboard">← Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="leaderboard-section">
+            <h2>Game High Scores</h2>
+            <div class="leaderboard-grid" id="leaderboardGrid"></div>
+        </section>
+
+        <section class="leaderboard-actions">
+            <button class="btn btn-primary" id="clearAllBtn">Clear All Scores</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 JavaScript Game Hub. Built with HTML5, CSS3, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/leaderboard.js"></script>
+</body>
+</html>
+

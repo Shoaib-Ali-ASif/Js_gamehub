@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - Game Hub</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">
+                <span>🐍</span>
+                <span>Snake Game</span>
+            </h1>
+            <a href="../../index.html" class="back-btn">← Back to Home</a>
+        </div>
+
+        <div class="game-info">
+            <div class="info-card">
+                <div class="info-label">Score</div>
+                <div class="info-value" id="score">0</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">High Score</div>
+                <div class="info-value" id="highScore">0</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Level</div>
+                <div class="info-value" id="level">1</div>
+            </div>
+        </div>
+
+        <div class="game-canvas-container">
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+        </div>
+
+        <div class="game-controls">
+            <button class="btn btn-primary" id="startBtn">Start Game</button>
+            <button class="btn btn-secondary" id="pauseBtn" disabled>Pause</button>
+            <button class="btn btn-secondary" id="resetBtn">Reset</button>
+        </div>
+
+        <div class="game-instructions">
+            <h3>How to Play</h3>
+            <p>Use arrow keys or WASD to control the snake. Eat the red food to grow and increase your score. Avoid hitting the walls or yourself!</p>
+            <div class="mobile-controls">
+                <button class="control-btn" data-direction="up">↑</button>
+                <div>
+                    <button class="control-btn" data-direction="left">←</button>
+                    <button class="control-btn" data-direction="down">↓</button>
+                    <button class="control-btn" data-direction="right">→</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../scripts/main.js"></script>
+    <script src="snake.js"></script>
+</body>
+</html>
+

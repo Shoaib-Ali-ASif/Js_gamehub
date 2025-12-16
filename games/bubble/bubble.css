@@ -1,0 +1,13 @@
+#gameCanvas {
+    background: linear-gradient(to bottom, #87ceeb 0%, #e0f6ff 100%);
+    border: 3px solid var(--border-color);
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
+

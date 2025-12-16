@@ -1,0 +1,155 @@
+.wordle-game {
+    text-align: center;
+    padding: 2rem;
+}
+
+.wordle-board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 8px;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+}
+
+.wordle-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.wordle-cell {
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.wordle-cell.filled {
+    border-color: var(--text-color);
+}
+
+.wordle-cell.correct {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: white;
+    animation: flip 0.5s ease;
+}
+
+.wordle-cell.present {
+    background: #eab308;
+    border-color: #eab308;
+    color: white;
+    animation: flip 0.5s ease;
+}
+
+.wordle-cell.absent {
+    background: #64748b;
+    border-color: #64748b;
+    color: white;
+    animation: flip 0.5s ease;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0);
+    }
+}
+
+.keyboard {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.key {
+    padding: 1rem 1.5rem;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    min-width: 40px;
+}
+
+.key:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.key:active {
+    transform: scale(0.95);
+}
+
+.key.correct {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: white;
+}
+
+.key.present {
+    background: #eab308;
+    border-color: #eab308;
+    color: white;
+}
+
+.key.absent {
+    background: #64748b;
+    border-color: #64748b;
+    color: white;
+}
+
+.key.wide {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+}
+
+.game-message {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-height: 40px;
+}
+
+.game-message.win {
+    color: #22c55e;
+}
+
+.game-message.lose {
+    color: #ef4444;
+}
+
+@media (max-width: 768px) {
+    .wordle-cell {
+        font-size: 1.5rem;
+    }
+    
+    .key {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        min-width: 30px;
+    }
+}
+
