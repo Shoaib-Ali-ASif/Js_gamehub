@@ -1,0 +1,13 @@
+#aimCanvas {
+    background: #111;
+    border-radius: 12px;
+    display: block;
+    margin: 20px auto;
+    cursor: crosshair;
+}
+
+.reload-text {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #ccc;
+}

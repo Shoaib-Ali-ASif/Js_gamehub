@@ -1,0 +1,7 @@
+canvas {
+  background: black;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  cursor: crosshair;
+}
