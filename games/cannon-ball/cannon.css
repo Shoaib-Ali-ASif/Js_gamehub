@@ -1,0 +1,22 @@
+#game3d {
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.power-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.power-control label {
+    font-weight: bold;
+}
+
+.power-control input {
+    width: 140px;
+}

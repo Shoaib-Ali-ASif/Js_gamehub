@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #87ceeb;
+  font-family: Arial, sans-serif;
+}
+
+#ui {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  background: rgba(255,255,255,0.8);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+button {
+  margin-left: 10px;
+  cursor: pointer;
+}

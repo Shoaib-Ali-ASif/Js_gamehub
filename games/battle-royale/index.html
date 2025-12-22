@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2D Battle Royale Advanced</title>
+  <style>
+    body { margin:0; background:#111; overflow:hidden; }
+    canvas { background:#222; display:block; margin:auto; }
+    #joystick {
+      position:fixed; bottom:40px; left:40px;
+      width:120px; height:120px;
+      border-radius:50%; background:rgba(255,255,255,0.1);
+      touch-action:none;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="game" width="1000" height="600"></canvas>
+<div id="joystick"></div>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+const keys = {};
+const bullets = [];
+const enemies = [];
+const loot = [];
+
+let mouseX=0, mouseY=0;
+
+// 🔊 Sounds
+const sounds = {
+  shoot: new Audio("sounds/shoot.wav"),
+  hit: new Audio("sounds/hit.wav"),
+  heal: new Audio("sounds/heal.wav")
+};
+
+// 🎯 Weapons
+const weapons = {
+  pistol: { damage:20, rate:15, speed:7 },
+  rifle: { damage:35, rate:6, speed:10 }
+};
+
+let currentWeapon = "pistol";
+let shootCooldown = 0;
+
+// 🧍 Player
+const player = {
+  x:500, y:300, size:15,
+  speed:4, hp:100,
+  ammo:100
+};
+
+// 🟢 Safe Zone
+let zone = { x:500, y:300, radius:280 };
+
+// 🎁 Loot Spawn
+for(let i=0;i<8;i++){
+  loot.push({
+    x:Math.random()*1000,
+    y:Math.random()*600,
+    type:Math.random()>0.5?"medkit":"rifle"
+  });
+}
+
+// 👾 Enemies
+for(let i=0;i<8;i++){
+  enemies.push({
+    x:Math.random()*1000,
+    y:Math.random()*600,
+    hp:60,
+    speed:1.4,
+    state:"idle"
+  });
+}
+
+document.addEventListener("keydown",e=>keys[e.key]=true);
+document.addEventListener("keyup",e=>keys[e.key]=false);
+canvas.addEventListener("mousemove",e=>{
+  const r=canvas.getBoundingClientRect();
+  mouseX=e.clientX-r.left;
+  mouseY=e.clientY-r.top;
+});
+canvas.addEventListener("mousedown",()=>shoot=true);
+document.addEventListener("mouseup",()=>shoot=false);
+
+let shoot=false;
+
+function fire(){
+  if(shootCooldown>0 || player.ammo<=0) return;
+  const w=weapons[currentWeapon];
+  bullets.push({
+    x:player.x,y:player.y,
+    dx:(mouseX-player.x)/w.speed,
+    dy:(mouseY-player.y)/w.speed,
+    damage:w.damage
+  });
+  player.ammo--;
+  sounds.shoot.play();
+  shootCooldown=w.rate;
+}
+
+function update(){
+  // Movement
+  if(keys["w"]) player.y-=player.speed;
+  if(keys["s"]) player.y+=player.speed;
+  if(keys["a"]) player.x-=player.speed;
+  if(keys["d"]) player.x+=player.speed;
+
+  if(keys["1"]) currentWeapon="pistol";
+  if(keys["2"]) currentWeapon="rifle";
+
+  if(shoot) fire();
+  shootCooldown=Math.max(0,shootCooldown-1);
+
+  // Bullets
+  bullets.forEach((b,i)=>{
+    b.x+=b.dx; b.y+=b.dy;
+    enemies.forEach((e,ei)=>{
+      if(Math.hypot(b.x-e.x,b.y-e.y)<15){
+        e.hp-=b.damage;
+        sounds.hit.play();
+        bullets.splice(i,1);
+        if(e.hp<=0) enemies.splice(ei,1);
+      }
+    });
+  });
+
+  // Enemy AI
+  enemies.forEach(e=>{
+    const d=Math.hypot(player.x-e.x,player.y-e.y);
+    if(d<250){
+      const a=Math.atan2(player.y-e.y,player.x-e.x);
+      e.x+=Math.cos(a)*e.speed;
+      e.y+=Math.sin(a)*e.speed;
+    }
+    if(d<20) player.hp-=0.2;
+  });
+
+  // Loot pickup
+  loot.forEach((l,i)=>{
+    if(Math.hypot(player.x-l.x,player.y-l.y)<20 && keys["e"]){
+      if(l.type==="medkit"){
+        player.hp=Math.min(100,player.hp+30);
+        sounds.heal.play();
+      } else currentWeapon="rifle";
+      loot.splice(i,1);
+    }
+  });
+
+  // Zone
+  zone.radius-=0.02;
+  if(Math.hypot(player.x-zone.x,player.y-zone.y)>zone.radius)
+    player.hp-=0.15;
+
+  if(player.hp<=0){ alert("GAME OVER"); location.reload(); }
+  if(enemies.length===0){ alert("YOU WIN!"); location.reload(); }
+}
+
+function draw(){
+  ctx.clearRect(0,0,1000,600);
+
+  ctx.strokeStyle="lime";
+  ctx.beginPath();
+  ctx.arc(zone.x,zone.y,zone.radius,0,Math.PI*2);
+  ctx.stroke();
+
+  ctx.fillStyle="cyan";
+  ctx.beginPath();
+  ctx.arc(player.x,player.y,15,0,Math.PI*2);
+  ctx.fill();
+
+  ctx.fillStyle="red";
+  enemies.forEach(e=>{
+    ctx.beginPath();
+    ctx.arc(e.x,e.y,14,0,Math.PI*2);
+    ctx.fill();
+  });
+
+  ctx.fillStyle="yellow";
+  bullets.forEach(b=>{
+    ctx.beginPath();
+    ctx.arc(b.x,b.y,4,0,Math.PI*2);
+    ctx.fill();
+  });
+
+  ctx.fillStyle="orange";
+  loot.forEach(l=>{
+    ctx.fillRect(l.x-8,l.y-8,16,16);
+  });
+
+  ctx.fillStyle="#fff";
+  ctx.fillText(`HP: ${Math.floor(player.hp)}`,20,25);
+  ctx.fillText(`Weapon: ${currentWeapon}`,20,45);
+  ctx.fillText(`Ammo: ${player.ammo}`,20,65);
+  ctx.fillText(`Enemies: ${enemies.length}`,20,85);
+}
+
+function loop(){
+  update(); draw();
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>

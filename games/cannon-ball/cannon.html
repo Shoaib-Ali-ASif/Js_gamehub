@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannon Balls 3D - Game Hub</title>
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="../../styles/main.css">
+
+    <!-- Game styles -->
+    <link rel="stylesheet" href="cannon.css">
+</head>
+<body>
+<div class="game-container">
+
+    <!-- Header -->
+    <div class="game-header">
+        <h1 class="game-title">
+            <span>🎯</span>
+            <span>Cannon Balls 3D</span>
+        </h1>
+        <a href="../../index.html" class="back-btn">← Back to Home</a>
+    </div>
+
+    <!-- Info -->
+    <div class="game-info">
+        <div class="info-card">
+            <div class="info-label">Score</div>
+            <div class="info-value" id="score">0</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Level</div>
+            <div class="info-value" id="level">1</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Shots</div>
+            <div class="info-value" id="shots">10</div>
+        </div>
+    </div>
+
+    <!-- Game Canvas -->
+    <div class="game-canvas-container">
+        <div id="game3d"></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="game-controls">
+        <button class="btn btn-primary" id="startBtn">Start</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+
+        <div class="power-control">
+            <label>Power</label>
+            <input type="range" id="powerSlider" min="10" max="100" value="40">
+        </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="game-instructions">
+        <p>Adjust power and click to shoot. Destroy all blocks to advance!</p>
+    </div>
+
+</div>
+
+<script src="../../scripts/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+<script src="cannon.js"></script>
+</body>
+</html>

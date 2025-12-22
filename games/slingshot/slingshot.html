@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slingshot Physics - Game Hub</title>
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="../../styles/main.css" />
+
+  <!-- Game specific styles -->
+  <link rel="stylesheet" href="slingshot.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- HEADER -->
+    <div class="game-header">
+      <h1 class="game-title">
+        <span>🐦</span>
+        <span>Slingshot Physics</span>
+      </h1>
+      <a href="../../index.html" class="back-btn">← Back to Home</a>
+    </div>
+
+    <!-- INFO PANEL -->
+    <div class="game-info">
+      <div class="info-card">
+        <div class="info-label">Score</div>
+        <div class="info-value" id="score">0</div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-label">High Score</div>
+        <div class="info-value" id="highScore">0</div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-label">Level</div>
+        <div class="info-value" id="level">1</div>
+      </div>
+    </div>
+
+    <!-- GAME CANVAS -->
+    <div class="game-canvas-container">
+      <canvas id="game"></canvas>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="game-controls">
+      <button class="btn btn-primary" id="resetBtn">
+        Reset Bird
+      </button>
+      <button class="btn btn-secondary" id="nextLevelBtn">
+        Next Level
+      </button>
+    </div>
+  </div>
+
+  <!-- Matter.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+
+  <!-- Global JS -->
+  <script src="../../scripts/main.js"></script>
+
+  <!-- Game JS -->
+  <script src="slingshot.js"></script>
+</body>
+</html>

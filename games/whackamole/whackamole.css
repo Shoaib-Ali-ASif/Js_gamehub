@@ -42,6 +42,7 @@
     animation: whackAnimation 0.2s ease;
 }
 
+
 @keyframes molePop {
     0% {
         transform: scale(0.8);
